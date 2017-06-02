@@ -18,5 +18,6 @@ namespace WormsStats.ReplayDetails.Model
     {
         public string Player { get; set; }
         public string Team { get; set; }
+        public string WeaponUsed { get; set; }
     }
 }

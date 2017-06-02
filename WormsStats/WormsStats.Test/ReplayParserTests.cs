@@ -50,6 +50,7 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
             var expected = new Turn();
             expected.Player = "Player D";
             expected.Team = "1-Up";
+            expected.WeaponUsed = "Bazooka";
 
             var turnDetails = replayDetails.Turns.First();
 
@@ -57,9 +58,13 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
 
             turnDetails.Player.Should().Be(expected.Player);
             turnDetails.Team.Should().Be(expected.Team);
-            
+
+            turnDetails.WeaponUsed.Should().Be(expected.WeaponUsed);
+
 
         }
+
+        
 
     }
 }
