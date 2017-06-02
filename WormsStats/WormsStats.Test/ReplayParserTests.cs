@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using WormsStats.ReplayDetails;
+using WormsStats.ReplayDetails.Model;
 
 namespace WormsStats.Tests
 {
@@ -29,6 +31,30 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
             expected.Add("Player D", "1-UP");
 
             replayDetails.PlayerToTeamMap.ShouldBeEquivalentTo(expected);
+        }
+
+        [Test]
+        public void CanParseSimpleTurn()
+        {
+            var replayContents = @"
+[00:00:00.00] ••• 1-Up (Player D) starts turn
+[00:00:11.12] ••• 1-Up (Player D) fires Bazooka
+[00:00:15.72] ••• 1-Up (Player D) ends turn; time used: 6.12 sec turn, 3.00 sec retreat
+[00:00:23.36] ••• Damage dealt: 43 to Test (Player-B), 14 to Team (PlayerA), 56 to Something in ""Quotes"" (PlayerC)
+";
+
+            var parser = new ReplayParser();
+
+            var replayDetails = parser.ParseString(replayContents);
+
+            var expected = new Turn();
+            expected.Player = "Player D";
+
+            var turnDetails = replayDetails.Turns.First();
+
+            turnDetails.Player.Should().Be(expected.Player);
+            replayDetails.Turns.Count().Should().Be(1);
+
         }
 
     }
