@@ -63,8 +63,5 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
 
 
         }
-
-        
-
     }
 }
