@@ -6,8 +6,8 @@ namespace WormsStats.Console
     {
         private static void Main(string[] args)
         {
-            const string wormsPath = @"C:\Program Files (x86)\Steam\steamapps\common\Worms Armageddon\";
-            const string replayPath = @"C:\Program Files (x86)\Steam\steamapps\common\Worms Armageddon\User\Games\";
+            const string wormsPath = @"D:\Games\steamapps\common\Worms Armageddon\";
+            const string replayPath = @"D:\Games\steamapps\common\Worms Armageddon\User\Games\";
 
             var replayExtractor = new ReplayLogExtractor(wormsPath, replayPath);
             replayExtractor.ExtractAll();
