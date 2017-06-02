@@ -49,11 +49,15 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
 
             var expected = new Turn();
             expected.Player = "Player D";
+            expected.Team = "1-Up";
 
             var turnDetails = replayDetails.Turns.First();
 
-            turnDetails.Player.Should().Be(expected.Player);
             replayDetails.Turns.Count().Should().Be(1);
+
+            turnDetails.Player.Should().Be(expected.Player);
+            turnDetails.Team.Should().Be(expected.Team);
+            
 
         }
 

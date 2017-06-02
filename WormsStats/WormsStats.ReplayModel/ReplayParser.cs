@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using WormsStats.ReplayDetails.Model;
 
@@ -40,6 +38,7 @@ namespace WormsStats.ReplayDetails
                     currentTurn = new Turn();
 
                     currentTurn.Player = args.Groups["player"].ToString();
+                    currentTurn.Team = args.Groups["team"].ToString();
                 }
 
                 var turnEndRegex = new Regex(@"•••\s(?<team>([^\(])+)\s\((?<player>([^\(])+)\) ends turn");

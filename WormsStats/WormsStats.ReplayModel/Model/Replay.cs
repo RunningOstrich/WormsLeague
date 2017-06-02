@@ -17,6 +17,6 @@ namespace WormsStats.ReplayDetails.Model
     public class Turn
     {
         public string Player { get; set; }
-        
+        public string Team { get; set; }
     }
 }
