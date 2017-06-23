@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace WormsStats.ReplayDetails.Model
 {
@@ -19,5 +20,20 @@ namespace WormsStats.ReplayDetails.Model
         public string Player { get; set; }
         public string Team { get; set; }
         public string WeaponUsed { get; set; }
+        public DamageCaused DamageCaused { get; }
+
+        public Turn()
+        {
+            DamageCaused = new DamageCaused();
+        }
+
+    }
+    
+    public class DamageCaused
+    {
+        public int To(string playerName)
+        {
+            return 0;
+        }
     }
 }

@@ -60,6 +60,7 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
             turnDetails.Team.Should().Be(expected.Team);
 
             turnDetails.WeaponUsed.Should().Be(expected.WeaponUsed);
+            turnDetails.DamageCaused.To("Player-B").Should().Be(43);
 
 
         }
