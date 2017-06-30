@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using WormsStats.ReplayDetails.Model;
 
@@ -59,7 +60,19 @@ namespace WormsStats.ReplayDetails
                     turns.Add(currentTurn);
                 }
 
+                var damageSummaryRegex = new Regex(@"••• Damage dealt:(?<dam> ([0-9]+) to (([^\(])+)\s\((([^\(])+)\),?)+");
 
+                if (damageSummaryRegex.IsMatch(line))
+                {
+                    var damageSumRegex = new Regex("( (?<number>[0-9]+) to (?<team>([^\\(])+)\\s\\((?<player>([^\\(])+)\\),?)");
+                    foreach (Match args in damageSumRegex.Matches(line))
+                    {
+                        var damageNumber = args.Groups["number"];
+                        var damageTo = args.Groups["player"];
+
+                        turns.Last().DamageCaused.SetDamage(damageTo.ToString(), int.Parse(damageNumber.ToString()));
+                    }
+                }
             }
 
             return new Replay(players, turns);

@@ -31,9 +31,16 @@ namespace WormsStats.ReplayDetails.Model
     
     public class DamageCaused
     {
+        private Dictionary<string, int> results = new Dictionary<string, int>();
+
         public int To(string playerName)
         {
-            return 0;
+            return results[playerName];
+        }
+
+        public void SetDamage(string player, int damage)
+        {
+            results.Add(player, damage);
         }
     }
 }
