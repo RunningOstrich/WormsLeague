@@ -51,7 +51,7 @@ namespace WormsStats.ReplayDetails
                     currentTurn.WeaponUsed = args.Groups["weapon"].ToString();
                 }
 
-                var turnEndRegex = new Regex(@"•••\s(?<team>([^\(])+)\s\((?<player>([^\(])+)\) ends turn");
+                var turnEndRegex = new Regex(@"•••\s(?<team>([^\(])+)\s\((?<player>([^\(])+)\)( ends turn| loses turn due to loss of control)");
 
                 if (turnEndRegex.IsMatch(line))
                 {
