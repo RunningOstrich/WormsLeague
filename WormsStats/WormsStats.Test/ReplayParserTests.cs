@@ -42,7 +42,7 @@ Yellow:  ""Player D"" as ""1-UP"" [Local Player] [Host]
 [00:00:00.00] ••• 1-Up (Player D) starts turn
 [00:00:11.12] ••• 1-Up (Player D) fires Bazooka
 [00:00:15.72] ••• 1-Up (Player D) ends turn; time used: 6.12 sec turn, 3.00 sec retreat
-[00:00:23.36] ••• Damage dealt: 43 to Test (Player-B), 14 to Team (PlayerA), 56 to Something in ""Quotes"" (PlayerC)
+[00:00:23.36] ••• Damage dealt: 43 (1 kill) to Test (Player-B), 14 to Team (PlayerA), 56 to Something in ""Quotes"" (PlayerC)
 ";
 
             var parser = new ReplayParser();

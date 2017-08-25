@@ -60,11 +60,11 @@ namespace WormsStats.ReplayDetails
                     turns.Add(currentTurn);
                 }
 
-                var damageSummaryRegex = new Regex(@"••• Damage dealt:(?<dam> ([0-9]+) to (([^\(])+)\s\((([^\(])+)\),?)+");
+                var damageSummaryRegex = new Regex(@"••• Damage dealt:");
 
                 if (damageSummaryRegex.IsMatch(line))
                 {
-                    var damageSumRegex = new Regex("( (?<number>[0-9]+) to (?<team>([^\\(])+)\\s\\((?<player>([^\\(])+)\\),?)");
+                    var damageSumRegex = new Regex("( (?<number>[0-9]+)\\([0-9] kill\\)? to (?<team>([^\\(])+)\\s\\((?<player>([^\\(])+)\\),?)");
                     foreach (Match args in damageSumRegex.Matches(line))
                     {
                         var damageNumber = args.Groups["number"];
