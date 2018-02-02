@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import data from './data.js'
 
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Turn from './Turn';
 
 class App extends Component {
@@ -15,16 +14,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="container-fluid">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Worms Gif leaderboard</h1>
         </header>
-        <p className="App-intro">
+        <div className="card-columns">
           {this.state.turns.map(
             t => <Turn turnDetails={t} />
           )}
-        </p>
+        </div>
       </div>
     );
   }
